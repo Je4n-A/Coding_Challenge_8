@@ -36,3 +36,26 @@ class Department {
 const department = new Department("Marketing");
 department.addEmployee(employee);
 console.log(`Department Salary ${department.getDepartmentSalary()}`);
+
+// Create a Manager Class that Inherits From Employee
+
+class Manager extends Employee{
+    constructor(name, salary, position, department, bonus){
+        super(name,salary,position,department);
+        this.bonus = bonus;
+    };
+    getDetails() {
+        return `Name: ${this.name}, 
+        Salary: ${this.salary}, 
+        Position: ${this.position}, 
+        Department: ${this.department}, 
+        Bonus: ${this.bonus}`;
+    };
+    calculateBonus() {
+        return this.salary * this.bonus;
+    };
+}
+    const manager = new Manager("Ruth", 80000, "Lead Engineer", "Engineering", 2)
+    console.log (`Manager: ${manager.getDetails()}`);  
+    console.log(`BONUS: ${manager.calculateBonus()}`);
+    
