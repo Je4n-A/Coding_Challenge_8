@@ -58,4 +58,29 @@ class Manager extends Employee{
     const manager = new Manager("Ruth", 80000, "Lead Engineer", "Engineering", 2)
     console.log (`Manager: ${manager.getDetails()}`);  
     console.log(`BONUS: ${manager.calculateBonus()}`);
-    
+
+// Handle Bonuses for Managers
+
+class Department {
+    constructor(name, employees = []) {
+        this.name = name;
+        this.employees = employees;
+}
+addEmployee(employee) {
+    this.employees.push(employee);
+}
+getDepartmentSalary() {
+    return this.employees.reduce((total, employee) => total + employee.salary, 0);
+}
+calculateTotalSalaryWithBonus() {
+    return this.employees.reduce((total, employee) => {
+        if (employee instanceof Manager) {
+            return total + employee.salary + employee.calculateBonus();
+        } else {
+            return total + employee.salary;
+        }
+    }, 0);
+}
+}
+console.log(department.calculateTotalSalaryWithBonus());
+
