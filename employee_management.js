@@ -108,6 +108,8 @@ const company = new Company("JMA Enterprises");
 company.addDepartment(engineering);
 company.addDepartment(sales);
 
+console.log(`Company: ${company.name}`);
+console.log(`***************************`);
 console.log(`Engineering Department Manager: ${engineering.employees.find(emp => emp instanceof Manager).getDetails()}`);
 console.log(`Engineering Department Employees:`);
 engineering.employees.forEach(emp => console.log(emp.getDetails()));
